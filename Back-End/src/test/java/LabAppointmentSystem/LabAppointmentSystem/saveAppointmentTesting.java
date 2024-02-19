@@ -1,14 +1,15 @@
 package LabAppointmentSystem.LabAppointmentSystem;
 
-import com.example.consultationWebBacked.DTO.AppointmentDTO;
-import com.example.consultationWebBacked.entity.Appointment;
-import com.example.consultationWebBacked.repositories.AppointmentRepo;
-import com.example.consultationWebBacked.service.AppointmentService;
-import com.example.consultationWebBacked.util.VarList;
+import LabAppointmentSystem.LabAppointmentSystem.DTO.AppointmentDTO;
+import LabAppointmentSystem.LabAppointmentSystem.entity.Appointment;
+import LabAppointmentSystem.LabAppointmentSystem.repositories.AppointmentRepo;
+import LabAppointmentSystem.LabAppointmentSystem.service.AppointmentService;
+import LabAppointmentSystem.LabAppointmentSystem.util.VarList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest
@@ -28,7 +29,7 @@ public class saveAppointmentTesting {
         appointmentDTO.setAddress("Colomco 05");
         appointmentDTO.setAge("15");
         appointmentDTO.setDob("10-09-2000");
-        appointmentDTO.setSex("Male");
+        appointmentDTO.setGender("Male");
         appointmentDTO.setCategory("IT");
         appointmentDTO.setCountry("USA");
         appointmentDTO.setDate("10-09-2023");

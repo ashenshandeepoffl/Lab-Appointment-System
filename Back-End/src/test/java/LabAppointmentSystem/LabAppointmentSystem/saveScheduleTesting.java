@@ -1,14 +1,15 @@
 package LabAppointmentSystem.LabAppointmentSystem;
 
-import com.example.consultationWebBacked.DTO.ScheduleDTO;
-import com.example.consultationWebBacked.entity.Schedule;
-import com.example.consultationWebBacked.repositories.ScheduleRepo;
-import com.example.consultationWebBacked.service.ScheduleService;
-import com.example.consultationWebBacked.util.VarList;
+import LabAppointmentSystem.LabAppointmentSystem.DTO.ScheduleDTO;
+import LabAppointmentSystem.LabAppointmentSystem.entity.Schedule;
+import LabAppointmentSystem.LabAppointmentSystem.repositories.ScheduleRepo;
+import LabAppointmentSystem.LabAppointmentSystem.service.ScheduleService;
+import LabAppointmentSystem.LabAppointmentSystem.util.VarList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
