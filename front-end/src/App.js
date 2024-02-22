@@ -5,11 +5,11 @@ import Home from './Home';
 import About from './About'; 
 import Contact from './Contact';
 import Login from './Login';
-import Admin from './Admin';
-import SignUp from './SignUp';
-import UserHome from './UserHome';  
+import Customer from './Customer';
+import SignUp from './SignUp';  
 import UserNavbar from './UserNavbar';
-import Logout from './Logout';  
+import Logout from './Logout';
+import AppointmentForm from './AppointmentForm';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,9 +23,9 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/user-home" element={<UserHome />} />
+        <Route path="/customer" element={<Customer />} />
         <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/appointmentForm" element={<AppointmentForm />} />
       </Routes>
     </Router>
   );

@@ -81,7 +81,7 @@ const Login = ({ setIsLoggedIn }) => {
             navigate('/user');
           } else if (data.role === 'ADMIN') {
             alert('Login successful Admin ' + data.name);
-            navigate('/admin', { state: { email: data.email } }); 
+            navigate('/customer', { state: { email: data.email } }); 
           } else if (data.role === 'CONSULTANT') {
             alert('Login successful Counselor ' + data.name);
             navigate('/consultant');
