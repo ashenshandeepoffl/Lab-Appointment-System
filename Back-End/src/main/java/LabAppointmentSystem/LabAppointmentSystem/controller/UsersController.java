@@ -27,7 +27,6 @@ import java.util.List;
 public class UsersController {
     @Autowired
     private ReportService reportService;
-
     @Autowired
     private ResponseDTO responseDTO;
     private final UserService userService;
@@ -267,7 +266,6 @@ public class UsersController {
             return new ResponseEntity(responseDTO, HttpStatus.INTERNAL_SERVER_ERROR);
 
         }
-
     }
     @GetMapping("/getAllAppointment")
     public ResponseEntity getAllAppointment() {

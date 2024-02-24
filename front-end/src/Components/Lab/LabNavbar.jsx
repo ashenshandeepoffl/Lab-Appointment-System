@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const LabNavbar = () => {
   const navStyles = {
     background: '#333',
     padding: '15px',
@@ -21,13 +21,12 @@ const Navbar = () => {
 
   return (
     <nav style={navStyles}>
-      <Link to="/" style={linkStyles}>Home</Link>
-      <Link to="/about" style={linkStyles}>About</Link>
-      <Link to="/contact" style={linkStyles}>Contact</Link>
-      <Link to="/login" style={linkStyles}>Login</Link>
-      <Link to="/appointmentForm" style={linkStyles}>Appoinment</Link>
+        <Link to="/lab" style={linkStyles}>Labs</Link>
+        <Link to="/addNewLab" style={linkStyles}>Add Labs</Link>
+        <Link to="/addNewSchedule" style={linkStyles}>Add Schedule</Link>
+        <Link to="/logout" style={linkStyles}>Logout</Link>
     </nav>
   );
-}
+};  
 
-export default Navbar;
+export default LabNavbar;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; // Import the Link component
+import { Link } from 'react-router-dom'; 
 
 const Container = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ const SignUpLink = styled(Link)`
   }
 `;
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = ({ setIsLoggedIn, setIsLabUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -61,7 +61,6 @@ const Login = ({ setIsLoggedIn }) => {
       password: password
     };
 
-    // Sending a POST request to the Spring Boot API
     fetch('http://localhost:8080/api/v1/login', {
       method: 'POST',
       headers: {
@@ -73,18 +72,20 @@ const Login = ({ setIsLoggedIn }) => {
       .then(data => {
         if (data.token) {
           localStorage.setItem('token', data.token);
-          setIsLoggedIn(true); 
-        
-          // Redirect the user based on their role
+          setIsLoggedIn(true);
+
           if (data.role === 'USER') {
+            setIsLabUser(false);
             alert('Login successful User ' + data.name);
             navigate('/user');
           } else if (data.role === 'ADMIN') {
+            setIsLabUser(false);
             alert('Login successful Admin ' + data.name);
-            navigate('/customer', { state: { email: data.email } }); 
+            navigate('/customer', { state: { email: data.email } });
           } else if (data.role === 'CONSULTANT') {
-            alert('Login successful Counselor ' + data.name);
-            navigate('/consultant');
+            setIsLabUser(true);
+            alert('Login successful Lab ' + data.name);
+            navigate('/lab');
           }
         } else {
           alert('Login failed. Please check your credentials.');
