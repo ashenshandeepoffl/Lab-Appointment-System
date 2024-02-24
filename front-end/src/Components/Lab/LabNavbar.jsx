@@ -24,6 +24,11 @@ const LabNavbar = () => {
         <Link to="/lab" style={linkStyles}>Labs</Link>
         <Link to="/addNewLab" style={linkStyles}>Add Labs</Link>
         <Link to="/addNewSchedule" style={linkStyles}>Add Schedule</Link>
+        <Link to="/viewAllUsers" style={linkStyles}>View Users</Link>
+        <Link to="/viewAppointment" style={linkStyles}>View Appointment</Link>
+        <Link to="/sendEmail" style={linkStyles}>Send Email</Link>
+        <Link to="/updateSchedule" style={linkStyles}>Update Schedule</Link>
+        <Link to="/pdf" style={linkStyles}>Pdf Report</Link>
         <Link to="/logout" style={linkStyles}>Logout</Link>
     </nav>
   );

@@ -16,6 +16,11 @@ import LabNavbar from './Components/Lab/LabNavbar';
 import AddNewLab from './Components/Lab/AddNewLab';
 import AddNewSchedule from './Components/Lab/AddNewSchedule';
 import ViewAllUsers from './Components/Lab/ViewAllUsers';
+import ViewAppointment from './Components/Lab/ViewAppointments';
+import SendEmail from './Components/Lab/SendEmail';
+// import ViewEmails from './Components/Lab/ViewEmails';
+import UpdateSchedule from './Components/Lab/UpdateSchedule';
+import PdfReportPage from './Components/Lab/Pdf';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,6 +53,10 @@ const App = () => {
         <Route path="/addNewLab" element={<AddNewLab />} />
         <Route path="/addNewSchedule" element={<AddNewSchedule />} />
         <Route path="/viewAllUsers" element={<ViewAllUsers />} />
+        <Route path="/viewAppointment" element={<ViewAppointment />} />
+        <Route path="/sendEmail" element={<SendEmail />} />
+        <Route path="/updateSchedule" element={<UpdateSchedule />} />
+        <Route path="/pdf" element={<PdfReportPage />} />
       </Routes>
     </Router>
   );
