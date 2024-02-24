@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -9,32 +9,50 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #fff; /* Blue background color */
 `;
 
 const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 `;
 
 const Input = styled.input`
-  margin-bottom: 10px;
-  padding: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
   font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+
+  &:focus {
+    border-color: #0D47A1; /* Dark blue border color on focus */
+  }
 `;
 
 const Button = styled.button`
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
-  background-color: #4CAF50;
+  background-color: #0D47A1; /* Dark blue button background color */
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #003366; /* Darker blue background color on hover */
+  }
 `;
 
 const SignUpLink = styled(Link)`
-  margin-top: 10px;
-  color: #4CAF50;
+  margin-top: 15px;
+  color: #0D47A1; /* Dark blue link color */
   text-decoration: none;
   font-size: 14px;
 
