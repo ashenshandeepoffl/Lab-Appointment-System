@@ -1,86 +1,75 @@
 /* AppointmentForm.css */
 
 .appointment-form-container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
+  border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.appointment-form header {
-  font-size: 24px;
-  font-weight: bold;
+header {
   text-align: center;
-  color: #4285f4; /* Google blue */
+  color: #ffffff; /* Google Blue */
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.appointment-form .input-box {
+p {
+  text-align: center;
+  color: #333;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
-.appointment-form label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 8px;
-  color: #5f6368; /* Google gray */
+.appointment-form {
+  display: flex;
+  flex-direction: column;
 }
 
-.appointment-form input,
-.appointment-form select {
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+input,
+select {
   width: 100%;
   padding: 10px;
-  font-size: 14px;
-  border: 1px solid #dadce0; /* Google light gray */
+  font-size: 16px;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  box-sizing: border-box;
+  outline: none;
 }
 
-.appointment-form .select-box {
-  position: relative;
-}
-
-.appointment-form select {
-  appearance: none;
-  padding-right: 30px;
+select {
   cursor: pointer;
 }
 
-.appointment-form select:after {
-  content: '\25BC'; /* Unicode character for down arrow */
-  font-size: 14px;
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #5f6368; /* Google gray */
-}
-
-.appointment-form .column {
-  display: flex;
-  gap: 20px;
-}
-
-.appointment-form .button-container {
+.button-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.appointment-form button {
-  padding: 10px 20px;
-  background-color: #4285f4; /* Google blue */
+button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #4285f4; /* Google Blue */
   color: #fff;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
-.appointment-form button:hover {
-  background-color: #3c79db; /* Darker shade on hover */
+button:hover {
+  background-color: #3367d6; /* Darker shade on hover */
 }

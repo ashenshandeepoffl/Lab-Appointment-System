@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import './Admin.css';
+import './Customer.css';
 import Image1 from '../../Images/7.jpg';
 import Image2 from '../../Images/6.jpg';
 
-const Admin = () => {
+const Customer = () => {
   const location = useLocation();
   const userEmail = location.state?.email || "User";
 
@@ -30,7 +30,7 @@ const Admin = () => {
           <h2>Welcome, {userEmail}!</h2>
           <p>
             You have successfully logged in to the hospital laboratory system.
-            Here, you can manage and access laboratory-related information.
+            Explore the latest technologies and innovations in our state-of-the-art laboratory. Our team of experts is dedicated to providing high-quality services and solutions.
           </p>
         </div>
         <div className="image-section">
@@ -42,4 +42,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Customer;

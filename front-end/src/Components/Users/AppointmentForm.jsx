@@ -62,6 +62,7 @@ const AppointmentForm = () => {
   return (
     <section className="appointment-form-container">
       <header>Add Appointment</header>
+      <p>Add your flexible appointment time & data, our stuff members will check and send you the most suitable and avaiavle time and date for you</p>
       <form id="AppointmentForm" className="appointment-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="fName">First Name</label>

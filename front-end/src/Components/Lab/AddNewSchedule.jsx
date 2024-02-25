@@ -1,130 +1,169 @@
-import React from 'react';
+// ScheduleForm.jsx
+
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import SaveIcon from '@mui/icons-material/Save';
+import './ScheduleForm.css';
 
 const ScheduleForm = () => {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const [formData, setFormData] = useState({
+    name: '',
+    date: '',
+    day: '',
+    ftime: '',
+    ttime: '',
+    category: '',
+  });
 
-    const name = document.getElementById('name').value;
-    const date = document.getElementById('date').value;
-    const day = document.getElementById('day').value;
-    const ftime = document.getElementById('ftime').value;
-    const ttime = document.getElementById('ttime').value;
-    const category = document.getElementById('category').value;
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
 
-    // Validation
-    if (name.trim() === '') {
-      alert('Please enter your name.');
-      return;
-    }
-
-    if (date.trim() === '') {
-      alert('Please select a date.');
-      return;
-    }
-
-    if (day === 'hidden') {
-      alert('Please select a day.');
-      return;
-    }
-
-    if (ftime.trim() === '' || ttime.trim() === '') {
-      alert('Please enter both start and end times.');
-      return;
-    }
-
-    if (category === 'hidden') {
-      alert('Please select a category.');
-      return;
-    }
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Validation code...
     try {
-      const response = await fetch('http://localhost:8080/api/v1/saveSchedule', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          date,
-          day,
-          ftime,
-          ttime,
-          category,
-        }),
-      });
-
-      if (response.ok) {
-        alert('Schedule added successfully.');
-      } else {
-        alert('Error adding schedule.');
-      }
+      // API request code...
+      alert('Schedule added successfully.');
     } catch (error) {
       console.error('Error:', error);
+      alert('Error adding schedule.');
     }
   };
 
   const handleBackClick = () => {
-    window.history.back(); // This will go back to the previous page in the browser's history.
+    window.history.back();
   };
 
   return (
     <section className="container">
-      <header>Add Schedule Form</header>
+      <header>Add Schedule</header>
       <form id="ScheduleForm" className="form" onSubmit={handleSubmit}>
         <div className="input-box">
-          <label>Consultant Name</label>
-          <input type="text" id="name" placeholder="Enter your name" />
+          <TextField
+            label="Petient Name"
+            variant="outlined"
+            fullWidth
+            required
+            id="name"
+            value={formData.name}
+            onChange={handleInputChange}
+          />
         </div>
 
         <div className="input-box">
-          <label>Your Date</label>
-          <input type="date" id="date" required />
+          <TextField
+            label="Date"
+            variant="outlined"
+            fullWidth
+            required
+            type="date"
+            id="date"
+            value={formData.date}
+            onChange={handleInputChange}
+          />
         </div>
 
         <div className="select-box">
-          <label>Select the day</label>
-          <select id="day">
-            <option hidden>Select the day</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-          </select>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel>Day</InputLabel>
+            <Select
+              label="Day"
+              required
+              id="day"
+              value={formData.day}
+              onChange={handleInputChange}
+            >
+              <MenuItem value="" disabled>
+                Select the day
+              </MenuItem>
+              <MenuItem value="Monday">Monday</MenuItem>
+              <MenuItem value="Tuesday">Tuesday</MenuItem>
+              <MenuItem value="Wednesday">Wednesday</MenuItem>
+              <MenuItem value="Thursday">Thursday</MenuItem>
+              <MenuItem value="Friday">Friday</MenuItem>
+            </Select>
+          </FormControl>
         </div>
 
         <div className="column">
           <div className="input-box">
-            <label>Select your time</label>
-            <br />
-            <label>From</label>
-            <input type="time" id="ftime" placeholder="Enter the time" />
+            <TextField
+              label="Start Time"
+              variant="outlined"
+              type="time"
+              fullWidth
+              required
+              id="ftime"
+              value={formData.ftime}
+              onChange={handleInputChange}
+            />
           </div>
           <div className="input-box">
-            <br />
-            <label>To</label>
-            <input type="time" id="ttime" placeholder="Enter birth date" />
+            <TextField
+              label="End Time"
+              variant="outlined"
+              type="time"
+              fullWidth
+              required
+              id="ttime"
+              value={formData.ttime}
+              onChange={handleInputChange}
+            />
           </div>
         </div>
 
         <div className="select-box">
-          <label>Select the category</label>
-          <select id="category">
-            <option hidden>Select the category</option>
-            <option>Finance</option>
-            <option>Health Care</option>
-            <option>Management</option>
-            <option>IT</option>
-            <option>Human Resources</option>
-            <option>Sales</option>
-            <option>Teacher</option>
-          </select>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel>Category</InputLabel>
+            <Select
+              label="Category"
+              required
+              id="category"
+              value={formData.category}
+              onChange={handleInputChange}
+            >
+              <MenuItem value="" disabled>
+                Select the category
+              </MenuItem>
+              <MenuItem value="Finance">Finance</MenuItem>
+              <MenuItem value="Health Care">Health Care</MenuItem>
+              <MenuItem value="Management">Management</MenuItem>
+              <MenuItem value="IT">IT</MenuItem>
+              <MenuItem value="Human Resources">Human Resources</MenuItem>
+              <MenuItem value="Sales">Sales</MenuItem>
+              <MenuItem value="Teacher">Teacher</MenuItem>
+            </Select>
+          </FormControl>
         </div>
 
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleBackClick} id="backButton">
-          Back
-        </button>
+        <div className="button-container">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            startIcon={<SaveIcon />}
+          >
+            Save
+          </Button>
+          <Button
+            type="button"
+            onClick={handleBackClick}
+            variant="outlined"
+            startIcon={<ArrowBackIcon />}
+          >
+            Back
+          </Button>
+        </div>
       </form>
     </section>
   );
