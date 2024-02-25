@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class ReportService {
-    private static final String REPORTS_PATH = "C:\\Users\\ishar\\Desktop\\wwii\\"; // Replace with your desired path
+    private static final String REPORTS_PATH = "C:\\Users\\Users\\Desktop\\Hello\\";
 
     public String generatePdfReport(List<Appointment> appointments, String fileName) throws IOException, DocumentException {
         String filePath = REPORTS_PATH + fileName;

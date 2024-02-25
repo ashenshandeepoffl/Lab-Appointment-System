@@ -1,24 +1,24 @@
 import React from 'react';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import './Logout.css';
 
 const Logout = ({ setIsLoggedIn }) => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    // Clear the authentication token from localStorage
     localStorage.removeItem('token');
-
-    // Optionally, perform additional logout logic here (e.g., clearing user data)
-
-    // Update the login status to false
     setIsLoggedIn(false);
-
-    // Redirect to the login page or any other desired location
-    window.location.href = '/login';
+    navigate('/login');
   };
 
   return (
-    <div>
+    <div className="logout-container">
       <h2>Logout Page</h2>
       <p>Are you sure you want to logout?</p>
-      <button onClick={handleLogout}>Logout</button>
+      <Button variant="contained" color="primary" onClick={handleLogout}>
+        Logout
+      </Button>
     </div>
   );
 };

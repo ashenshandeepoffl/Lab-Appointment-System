@@ -47,7 +47,5 @@ public class saveAppointmentTesting {
         // Verify that the schedule has been saved in the repository
         Appointment saveAppointment = appointmentRepo.findById(3).orElse(null);
         assertNotNull(saveAppointment);
-
-        // Add more assertions as needed to verify the saved data.
     }
 }

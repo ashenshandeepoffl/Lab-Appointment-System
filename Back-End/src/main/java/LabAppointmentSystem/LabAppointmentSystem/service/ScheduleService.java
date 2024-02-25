@@ -17,14 +17,11 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ScheduleService {
-
     @Autowired
     private ScheduleRepo scheduleRepo;
 
     @Autowired
     private ModelMapper modelMapper;
-
-
 
     public String saveSchedule(ScheduleDTO scheduleDTO){
         if (scheduleRepo.existsById(scheduleDTO.getId())){

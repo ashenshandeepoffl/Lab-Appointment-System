@@ -1,12 +1,10 @@
-// LabNavbar.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './LabNavbar.css'; // Import external stylesheet
+import './LabNavbar.css';
 
 const LabNavbar = () => {
   return (
-    <nav className="lab-navbar">
+    <nav className="navbar">
       <Link to="/lab" className="nav-link">Labs</Link>
       <Link to="/addNewLab" className="nav-link">Add Labs</Link>
       <Link to="/addNewSchedule" className="nav-link">Add Schedule</Link>

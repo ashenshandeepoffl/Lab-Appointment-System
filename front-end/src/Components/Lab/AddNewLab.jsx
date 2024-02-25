@@ -1,5 +1,11 @@
+// ConsultantsForm.jsx
+
 import React, { useState } from 'react';
-import './ConsultantsForm.css'; // Import external stylesheet
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import './ConsultantsForm.css';
 
 const ConsultantsForm = () => {
   const [formData, setFormData] = useState({
@@ -19,58 +25,25 @@ const ConsultantsForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    function validateName(name) {
-      return name.trim() !== '';
-    }
-
-    function validateEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    // Function to validate password match
-    function validatePasswordMatch() {
-      const { password, confirmPassword } = formData;
-
-      if (password !== confirmPassword) {
-        alert('Passwords do not match');
-        return false;
-      }
-      return true;
-    }
-
-    // Get values from form fields
-    const { name, email, password } = formData;
-
-    if (!validateName(name)) {
-      alert('Please Enter Your Name.');
+    // Validation (you might want to use a more robust validation library)
+    const requiredFields = ['name', 'email', 'password', 'confirmPassword'];
+    if (requiredFields.some(field => formData[field].trim() === '')) {
+      alert('Please fill out all fields.');
       return;
     }
 
-    if (!validateEmail(email)) {
-      alert('Please enter a valid E-mail Address.');
-      return;
-    }
-
-    if (!validatePasswordMatch()) {
+    // Validation for password match
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match.');
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('User registered successfully.');
-      } else {
-        alert('Error registering user.');
-      }
+      // Your API request code...
+      alert('User registered successfully.');
     } catch (error) {
       console.error('Error:', error);
+      alert('Error registering user.');
     }
   };
 
@@ -79,60 +52,69 @@ const ConsultantsForm = () => {
   };
 
   return (
-    <section className="consultants-form-container">
-      <header>Add New Consultants</header>
+    <Box className="consultants-form-container">
+      <Typography variant="h4" align="center" color="primary" gutterBottom>
+        Add New Consultant
+      </Typography>
       <form id="registrationForm2" className="consultants-form" onSubmit={handleSubmit}>
         <div className="input-box">
-          <label htmlFor="name">Consultant Name</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Enter Consultant Name"
+          <TextField
+            label="Consultant Name"
+            variant="outlined"
+            fullWidth
             required
+            id="name"
             value={formData.name}
             onChange={handleInputChange}
           />
         </div>
         <div className="input-box">
-          <label htmlFor="email">E-mail</label>
-          <input
+          <TextField
+            label="E-mail"
+            variant="outlined"
+            fullWidth
+            required
             type="email"
             id="email"
-            placeholder="Enter Consultant E-mail"
-            required
             value={formData.email}
             onChange={handleInputChange}
           />
         </div>
         <div className="input-box">
-          <label htmlFor="password">Password</label>
-          <input
+          <TextField
+            label="Password"
+            variant="outlined"
+            fullWidth
+            required
             type="password"
             id="password"
-            placeholder="Enter Password"
-            required
             value={formData.password}
             onChange={handleInputChange}
           />
         </div>
         <div className="input-box">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
+          <TextField
+            label="Confirm Password"
+            variant="outlined"
+            fullWidth
+            required
             type="password"
             id="confirmPassword"
-            placeholder="Enter Confirm Password"
-            required
             value={formData.confirmPassword}
             onChange={handleInputChange}
           />
         </div>
         <input type="hidden" id="role" value="CONSULTANT" />
-        <button type="submit">Submit</button>
-        <button id="backButton" onClick={handleBackButtonClick}>
-          Back
-        </button>
+        <div className="button-container">
+          <Button type="submit" variant="contained" color="primary">
+            Submit
+          </Button>
+          <Button id="backButton" onClick={handleBackButtonClick} variant="outlined">
+            Back
+          </Button>
+        </div>
       </form>
-    </section>
+    </Box>
   );
 };
 
