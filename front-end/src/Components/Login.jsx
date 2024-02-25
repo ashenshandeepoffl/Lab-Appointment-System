@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import backgroundImage from '../Images/5.jpg';
 
 const Container = styled.div`
   display: flex;
@@ -118,6 +119,7 @@ const Login = ({ setIsLoggedIn, setIsLabUser }) => {
   return (
     <Container>
       <LoginForm onSubmit={handleLogin}>
+        <h1>Login Form</h1>
         <Input
           type="email"
           id="email"

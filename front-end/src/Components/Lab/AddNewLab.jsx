@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ConsultantsForm.css'; // Import external stylesheet
 
 const ConsultantsForm = () => {
   const [formData, setFormData] = useState({
@@ -78,9 +79,9 @@ const ConsultantsForm = () => {
   };
 
   return (
-    <section className="container">
+    <section className="consultants-form-container">
       <header>Add New Consultants</header>
-      <form id="registrationForm2" className="form" onSubmit={handleSubmit}>
+      <form id="registrationForm2" className="consultants-form" onSubmit={handleSubmit}>
         <div className="input-box">
           <label htmlFor="name">Consultant Name</label>
           <input

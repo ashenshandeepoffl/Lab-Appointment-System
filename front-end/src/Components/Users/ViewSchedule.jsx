@@ -1,4 +1,7 @@
+// ViewSchedule.jsx
+
 import React, { useState, useEffect } from 'react';
+import './ViewSchedule.css'; // Import external stylesheet
 
 const ViewSchedule = () => {
   const [data, setData] = useState([]);
@@ -39,27 +42,27 @@ const ViewSchedule = () => {
   }, []);
 
   return (
-    <div>
+    <div className="view-schedule-container">
       <h1>View Schedule</h1>
       <div className="search">
         <input
-          className="srch"
+          className="search-input"
           type="search"
           id="searchInput"
-          placeholder="Type To text"
+          placeholder="Search by ID"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <button className="btn" onClick={handleSearch}>
+        <button className="search-button" onClick={handleSearch}>
           Search
         </button>
       </div>
 
-      <div className="table_responsive">
+      <div className="table-responsive">
         <table>
           <thead>
             <tr>
-              <th>Id</th>
+              <th>ID</th>
               <th>Consultant Name</th>
               <th>Available Date</th>
               <th>Available Day</th>
@@ -69,7 +72,7 @@ const ViewSchedule = () => {
             </tr>
           </thead>
 
-          <tbody id="data">
+          <tbody>
             {data.map((event) => (
               <tr key={event.id}>
                 <td>{event.id}</td>
@@ -84,7 +87,7 @@ const ViewSchedule = () => {
           </tbody>
         </table>
       </div>
-      <button className="backButton" onClick={() => window.history.back()}>
+      <button className="back-button" onClick={() => window.history.back()}>
         Back
       </button>
     </div>

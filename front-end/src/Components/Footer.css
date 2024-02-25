@@ -1,0 +1,38 @@
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto; /* Center the content on the page */
+}
+
+.footer-section {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        width: 100%; /* Make the sections full-width on smaller screens */
+    }
+}

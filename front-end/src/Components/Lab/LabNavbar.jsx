@@ -1,37 +1,23 @@
+// LabNavbar.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './LabNavbar.css'; // Import external stylesheet
 
 const LabNavbar = () => {
-  const navStyles = {
-    background: '#333',
-    padding: '15px',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    color: '#fff',
-  };
-
-  const linkStyles = {
-    textDecoration: 'none',
-    color: '#fff',
-    padding: '10px',
-    borderRadius: '5px',
-    transition: 'background 0.3s',
-  };
-
   return (
-    <nav style={navStyles}>
-        <Link to="/lab" style={linkStyles}>Labs</Link>
-        <Link to="/addNewLab" style={linkStyles}>Add Labs</Link>
-        <Link to="/addNewSchedule" style={linkStyles}>Add Schedule</Link>
-        <Link to="/viewAllUsers" style={linkStyles}>View Users</Link>
-        <Link to="/viewAppointment" style={linkStyles}>View Appointment</Link>
-        <Link to="/sendEmail" style={linkStyles}>Send Email</Link>
-        <Link to="/updateSchedule" style={linkStyles}>Update Schedule</Link>
-        <Link to="/pdf" style={linkStyles}>Pdf Report</Link>
-        <Link to="/logout" style={linkStyles}>Logout</Link>
+    <nav className="lab-navbar">
+      <Link to="/lab" className="nav-link">Labs</Link>
+      <Link to="/addNewLab" className="nav-link">Add Labs</Link>
+      <Link to="/addNewSchedule" className="nav-link">Add Schedule</Link>
+      <Link to="/viewAllUsers" className="nav-link">View Users</Link>
+      <Link to="/viewAppointment" className="nav-link">View Appointment</Link>
+      <Link to="/sendEmail" className="nav-link">Send Email</Link>
+      <Link to="/updateSchedule" className="nav-link">Update Schedule</Link>
+      <Link to="/pdf" className="nav-link">Pdf Report</Link>
+      <Link to="/logout" className="nav-link">Logout</Link>
     </nav>
   );
-};  
+};
 
 export default LabNavbar;

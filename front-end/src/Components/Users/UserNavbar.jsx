@@ -1,32 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './UserNavbar.css';
 
 const UserNavbar = () => {
-  const navStyles = {
-    background: '#333',
-    padding: '15px',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    color: '#fff',
-  };
-
-  const linkStyles = {
-    textDecoration: 'none',
-    color: '#fff',
-    padding: '10px',
-    borderRadius: '5px',
-    transition: 'background 0.3s',
-  };
-
   return (
-    <nav style={navStyles}>
-        <Link to="/customer" style={linkStyles}>Home</Link>
-        <Link to="/appointmentForm" style={linkStyles}>Appoinment</Link>
-        <Link to="/viewSchedule" style={linkStyles}>Schedule</Link>
-        <Link to="/logout" style={linkStyles}>Logout</Link>
+    <nav className="navbar">
+      <Link to="/customer" className="nav-link">Home</Link>
+      <Link to="/appointmentForm" className="nav-link">Appointment</Link>
+      <Link to="/viewSchedule" className="nav-link">Schedule</Link>
+      <Link to="/logout" className="nav-link">Logout</Link>
     </nav>
   );
-};  
+};
 
 export default UserNavbar;
