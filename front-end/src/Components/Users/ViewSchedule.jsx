@@ -68,7 +68,7 @@ const ViewSchedule = () => {
               <th>Available Day</th>
               <th>Time (From)</th>
               <th>Time (To)</th>
-              <th>Job Type</th>
+              <th>Lab Section</th>
             </tr>
           </thead>
 
