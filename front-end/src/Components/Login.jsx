@@ -1,66 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import backgroundImage from '../Images/5.jpg';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #fff; /* Blue background color */
-`;
-
-const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-`;
-
-const Input = styled.input`
-  margin-bottom: 15px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  outline: none;
-
-  &:focus {
-    border-color: #0D47A1; /* Dark blue border color on focus */
-  }
-`;
-
-const Button = styled.button`
-  padding: 12px;
-  font-size: 16px;
-  background-color: #0D47A1; /* Dark blue button background color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #003366; /* Darker blue background color on hover */
-  }
-`;
-
-const SignUpLink = styled(Link)`
-  margin-top: 15px;
-  color: #0D47A1; /* Dark blue link color */
-  text-decoration: none;
-  font-size: 14px;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+import './Login.css';
 
 const Login = ({ setIsLoggedIn, setIsLabUser }) => {
   const [email, setEmail] = useState('');
@@ -117,27 +57,29 @@ const Login = ({ setIsLoggedIn, setIsLabUser }) => {
   };
 
   return (
-    <Container>
-      <LoginForm onSubmit={handleLogin}>
+    <div className="container">
+      <form className="login-form" onSubmit={handleLogin}>
         <h1>Login Form</h1>
-        <Input
+        <input
+          className="input"
           type="email"
           id="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Input
+        <input
+          className="input"
           type="password"
           id="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="submit">Login</Button>
-      </LoginForm>
-      <SignUpLink to="/signup">Not registered? Sign up here</SignUpLink>
-    </Container>
+        <button className="button" type="submit">Login</button>
+      </form>
+      <a className="sign-up-link" href="/signup">Not registered? Sign up here</a>
+    </div>
   );
 };
 

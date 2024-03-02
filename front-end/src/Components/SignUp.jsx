@@ -130,9 +130,8 @@ const SignUp = () => {
           confirmPassword: '',
         });
 
-        // Redirect to login page or perform any necessary navigation logic
-        // Assuming you are using React Router, you can replace the following line with your actual navigation logic
-        window.location.href = '/login'; // Update with your login page route
+      
+        window.location.href = '/login'; 
       } else {
         alert('Error registering user.');
       }
